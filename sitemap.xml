@@ -2,10 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://slackman.cn/</loc>
-         <lastmod>2024-12-23</lastmod>
+         <lastmod>2025-01-04</lastmod>
     </url>
     <url>
          <loc>https://slackman.cn/about/</loc>
-         <lastmod>2024-12-23</lastmod>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/howto/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/howto/01-mkdoc/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/howto/02-cgit/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/howto/03-wikijs/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/script/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/script/source/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/script/tools/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/system/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/system/01-bootcd/</loc>
+         <lastmod>2025-01-04</lastmod>
+    </url>
+    <url>
+         <loc>https://slackman.cn/system/02-diskimage/</loc>
+         <lastmod>2025-01-04</lastmod>
     </url>
 </urlset>

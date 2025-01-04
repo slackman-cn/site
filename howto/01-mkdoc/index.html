@@ -8,24 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://slackman.cn/about/">
+        <link rel="canonical" href="https://slackman.cn/howto/01-mkdoc/">
       
       
       
       
-      <link rel="icon" href="../linux.ico">
+      <link rel="icon" href="../../linux.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>About - SLACKMAN.CN</title>
+        <title>mkdoc website - SLACKMAN.CN</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about-links" class="md-skip">
+        <a href="#mkdoc" class="md-skip">
           跳转至
         </a>
       
@@ -82,9 +82,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+    <a href="../.." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
       
-  <img src="../xp.png" alt="logo">
+  <img src="../../xp.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              mkdoc website
             
           </span>
         </div>
@@ -194,11 +194,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
         
   
     
@@ -232,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+    <a href="../.." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
       
-  <img src="../xp.png" alt="logo">
+  <img src="../../xp.png" alt="logo">
 
     </a>
     SLACKMAN.CN
@@ -318,19 +316,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -339,7 +328,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -364,6 +352,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      新增页面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-ie8" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义样式 (Support IE8)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -380,8 +403,105 @@
   
 
 
-<h1 id="about-links">About Links</h1>
-<p><a href="https://www.wikihow.com/Main-Page">https://www.wikihow.com/Main-Page</a></p>
+<h1 id="mkdoc">mkdoc 创建网站</h1>
+<p>https://www.mkdocs.org/getting-started/</p>
+<pre><code>sudo apt install python3-venv
+sudo apt install python3-pip
+
+python3 -m venv mysite
+source bin/activate
+pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+pip install mkdocs
+
+mkdocs new website
+mkdocs serve
+</code></pre>
+<h3 id="_1">新增页面</h3>
+<pre><code>curl 'https://jaspervdj.be/lorem-markdownum/markdown.txt' &gt; docs/about.md
+$ vi mkdocs.yml
+site_name: Slackman
+plugins: []
+nav:
+ - Home: index.md
+ - About: about.md
+
+nav:
+ - SCRIPT:
+   - script/source.md
+   - script/tools.md
+ - HOWTO:
+   - howto/mkdocs.md
+   - howto/cgit.md
+ - REPOSITORY: about.md
+</code></pre>
+<h3 id="_2">主题</h3>
+<pre><code>$ vi mkdocs.yml
+theme:
+  name: readthedocs
+</code></pre>
+<p>https://squidfunk.github.io/mkdocs-material/reference/grids/</p>
+<pre><code>pip install mkdocs-material
+$ vi mkdocs.yml
+theme:
+ name: material
+ language: zh
+ logo: xp.png
+ favicon: linux.ico
+ palette:
+   primary: teal
+ features:
+   - navigation.tabs
+extra:
+ generator: false
+</code></pre>
+<h3 id="support-ie8">自定义样式 (Support IE8)</h3>
+<pre><code>theme:
+  name: null
+  custom_dir: 'theme/'
+
+extra:
+  version: 0.13.0
+  links:
+    - https://github.com/mkdocs
+    - https://docs.readthedocs.org/en/latest/builds.html#mkdocs
+    - https://www.mkdocs.org/
+</code></pre>
+<p>https://pure-css.github.io/  <br />
+https://v3.bootcss.com/  </p>
+<pre><code>https://www.w3schools.com/w3js/
+ &lt;script src=&quot;https://www.w3schools.com/lib/w3.js&quot;&gt;&lt;/script&gt; 
+&lt;script src=&quot;w3.js&quot;&gt;&lt;/script&gt; 
+
+https://www.w3schools.com/w3css/default.asp
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://www.w3schools.com/w3css/4/w3.css&quot;&gt; 
+&lt;link rel=&quot;stylesheet&quot; href=&quot;w3.css&quot;&gt; 
+
+https://nextui.org/docs/components/navbar
+https://www.w3schools.com/Css/css_navbar.asp
+https://www.w3schools.com/csS/css_navbar_horizontal.asp
+
+https://foolishdeveloper.com/navigation-bar-html-css-javascript/
+https://onaircode.com/html-css-navbar-examples/
+https://codepen.io/acarlie/pen/JjPKmmV
+
+
+这个最好, 尽量减小体积
+https://codepen.io/ariona/pen/pENZXW
+https://codepen.io/pec-man/pen/bGbeXqZ   
+(直接使用native, 不要用jquery, 太大了还没法精简)
+https://zkrisj.github.io/vitepress-blog/posts/native-substitution-for-jquery.html
+https://www.cnblogs.com/moqiutao/p/9991678.html
+
+## scss 转 css, 并且压缩
+sass style.scss  style.css
+sass style.scss style-min.css --style compressed
+
+## webpack合并 css和js 到bundle.js
+https://www.javascriptcn.com/post/66561bfbd3423812e4abfbb4
+https://www.cnblogs.com/star2021/p/14392261.html
+pnpm add -D webpack webpack-cli uglifyjs-webpack-plugin
+pnpm add -D style-loader css-loader
+</code></pre>
 
 
 
@@ -426,10 +546,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>

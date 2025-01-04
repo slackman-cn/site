@@ -8,24 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://slackman.cn/about/">
+        <link rel="canonical" href="https://slackman.cn/howto/03-wikijs/">
       
       
       
       
-      <link rel="icon" href="../linux.ico">
+      <link rel="icon" href="../../linux.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>About - SLACKMAN.CN</title>
+        <title>wikijs website - SLACKMAN.CN</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about-links" class="md-skip">
+        <a href="#wikijs" class="md-skip">
           跳转至
         </a>
       
@@ -82,9 +82,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+    <a href="../.." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
       
-  <img src="../xp.png" alt="logo">
+  <img src="../../xp.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              wikijs website
             
           </span>
         </div>
@@ -194,11 +194,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
         
   
     
@@ -232,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+    <a href="../.." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
       
-  <img src="../xp.png" alt="logo">
+  <img src="../../xp.png" alt="logo">
 
     </a>
     SLACKMAN.CN
@@ -318,19 +316,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -339,7 +328,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -364,6 +352,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      自定义
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -380,8 +385,55 @@
   
 
 
-<h1 id="about-links">About Links</h1>
-<p><a href="https://www.wikihow.com/Main-Page">https://www.wikihow.com/Main-Page</a></p>
+<hr />
+<h1 id="wikijs">wikijs 创建网站</h1>
+<p>v2 支持导出， 不支持导入。 预计v3 支持
+目前只能迁移 postgres 数据库</p>
+<pre><code>https://docs.vultr.com/install-wiki-js-with-node-js-postgresql-and-nginx-on-ubuntu-20-04-lts
+https://docker.aityp.com/image/docker.io/postgres:alpine
+
+docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/postgres:alpine
+docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/postgres:alpine  docker.io/postgres:alpine
+
+docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/postgres:15-alpine
+docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/postgres:15-alpine  docker.io/postgres:15-alpine
+
+docker run --name postgres  -p 5432:5432 \
+  --restart unless-stopped \
+  -e POSTGRES_DB=wiki \
+  -e POSTGRES_PASSWORD=wikijsrocks \
+  -e POSTGRES_USER=wikijs \
+  -v /data/mirror/wiki/postgres:/var/lib/postgresql/data \
+  -d postgres:15-alpine
+</code></pre>
+<h2 id="_1">自定义</h2>
+<pre><code>wget https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/v22.6.0/node-v22.6.0-linux-x64.tar.gz
+wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz
+ln -s /opt/node-v20/bin/node /usr/local/bin/
+
+全部默认 cp config.sample.yml config.yml
+host: localhost
+port: 5432
+user: wikijs
+pass: wikijsrocks
+db: wiki
+
+$ /usr/lib/systemd/system/wikijs.service
+[Unit]
+Description=Wiki.js
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node server
+Restart=always
+User=root
+Environment=NODE_ENV=production
+WorkingDirectory=/data/mirror/wiki
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
 
 
 
@@ -426,10 +478,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>

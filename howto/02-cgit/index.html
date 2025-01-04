@@ -1,0 +1,653 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://slackman.cn/howto/02-cgit/">
+      
+      
+      
+      
+      <link rel="icon" href="../../linux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>cgit - SLACKMAN.CN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cgit" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+      
+  <img src="../../xp.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SLACKMAN.CN
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              cgit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/slackman-cn/site.git" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/howto/" class="md-tabs__link">
+        
+  
+    
+  
+  HOWTO
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/script/" class="md-tabs__link">
+        
+  
+    
+  
+  SCRIPT
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/system/" class="md-tabs__link">
+        
+  
+    
+  
+  SYSTEM
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+      
+  <img src="../../xp.png" alt="logo">
+
+    </a>
+    SLACKMAN.CN
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/slackman-cn/site.git" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/howto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HOWTO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCRIPT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SYSTEM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cgit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译cgit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web UI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置文件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-web-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Web (x)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-src" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译git-src
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-src" class="md-nav__link">
+    <span class="md-ellipsis">
+      编译nginx-src
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx dir
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="cgit">cgit</h1>
+<p>编译cgit 需要先下载git源码</p>
+<pre><code>https://git-scm.com/downloads
+https://github.com/git/git/tags
+
+$ git clone https://git.zx2c4.com/cgit
+$ git clone https://www.thedroneely.com/git/thedroneely/cgit
+
+方式1 git submodule init &amp;&amp; git submodule update
+方式2 make get-git
+    https://www.kernel.org/pub/software/scm/git/git-2.46.0.tar.xz 
+    &amp;&amp; rm -rf git
+    &amp;&amp; mv git-2.46.0 git
+</code></pre>
+<h3 id="cgit_1">编译cgit</h3>
+<p>https://git.zx2c4.com/cgit/about/</p>
+<pre><code>podman run -it --rm -v `pwd`:/build anolis bash
+yum install -y which 
+yum install -y gcc make
+yum install -y openssl-devel
+[openeuler] yum install -y findutils
+
+$ make clean
+$ make
+$ sudo make install
+
+install -m 0755 -d /var/www/htdocs/cgit
+install -m 0755 cgit /var/www/htdocs/cgit/cgit.cgi
+install -m 0755 -d /var/www/htdocs/cgit
+install -m 0644 cgit.css /var/www/htdocs/cgit/cgit.css
+install -m 0644 cgit.js /var/www/htdocs/cgit/cgit.js
+install -m 0644 cgit.png /var/www/htdocs/cgit/cgit.png
+install -m 0644 favicon.ico /var/www/htdocs/cgit/favicon.ico
+install -m 0644 robots.txt /var/www/htdocs/cgit/robots.txt
+install -m 0755 -d /usr/local/lib/cgit/filters
+cp -r filters/* /usr/local/lib/cgit/filters
+</code></pre>
+<h3 id="web-ui">Web UI</h3>
+<pre><code>[anolis]
+yum install epel-release
+yum install fcgi fcgiwrap
+yum install spawn-fcgi
+
+[openeuler]
+yum install fcgi
+yum install spawn-fcgi
+
+[openeuler 编译fcgiwrap]
+https://gitee.com/src-oepkgs/fcgiwrap/tree/master
+https://github.com/gnosek/fcgiwrap
+yum install -y automake autoconf
+yum install -y fcgi-devel
+
+
+yum install -y nginx  
+openEuler和anolis都改了nginx源码和首页
+
+spawn-fcgi -s /var/run/fcgiwrap.socket -M 0666 -U nginx -- /usr/sbin/fcgiwrap
+ps -ef | grep fcgi
+</code></pre>
+<h3 id="_1">配置文件</h3>
+<p>nginx.conf</p>
+<pre><code>location ~ ^/cgit\.(png|css)$ { root /var/www/htdocs/cgit/; }
+location ~ ^/cgit(/.*) {
+    fastcgi_pass unix:/var/run/fcgiwrap.socket;
+    fastcgi_param SCRIPT_FILENAME /var/www/htdocs/cgit/cgit.cgi;
+    fastcgi_param PATH_INFO       $1;
+    fastcgi_param CGIT_CONFIG     /data1/githost/cgitrc;
+    include fastcgi_params;
+}
+
+server {
+    listen       80;
+    server_name  githost;
+    location / {
+        rewrite ^/(.*) http://10.31.66.80/cgit/$1 permanent;
+    }
+}
+</code></pre>
+<p>cgitrc</p>
+<pre><code>virtual-root=/cgit
+scan-path=/data1/githost/
+
+# Here are some default values
+root-title=Git repository mirror
+root-desc=a fast webinterface for the git dscm
+
+# Custom configuration
+clone-prefix=http://githost
+
+# Syntax highlighting
+source-filter=/usr/local/lib/cgit/filters/syntax-highlighting.sh
+</code></pre>
+<h3 id="install-web-x">Install Web (x)</h3>
+<pre><code>sudo apt install nginx
+sudo apt install gitweb  # 主要是配置文件
+sudo apt install fcgiwrap
+
+依赖不如单独安装
+apt-get install libcgi-fast-perl
+apt-get install highlight
+
+------------- cgit
+apt install cgit  自动安装 apache2
+卸载cgit，不会卸载apache2
+
+
+----- REF
+https://leanhe.dev/posts/2021.05.02.1/  (cgit运行失败)
+https://fishilico.github.io/generic-config/etc-server/web/gitweb.html   (gitweb运行成功 + nginx)
+</code></pre>
+<h3 id="git-src">编译git-src</h3>
+<p>https://git.mosong.cc/guide/install-git-src.html </p>
+<pre><code>https://commandnotfound.cn/linux/1/174/cmp-%E5%91%BD%E4%BB%A4
+yum install -y diffutils
+
+yum install curl-devel expat-devel gettext-devel \
+    openssl-devel zlib-devel
+apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
+    libz-dev libssl-dev
+
+tar -zxf git-1.7.2.2.tar.gz
+cd git-1.7.2.2
+make prefix=/opt/git all
+sudo make prefix=/opt/git install
+默认安装 /root/{bin,libexec,share}
+
+
+/usr/lib/git-core/  对应 /opt/git/libexec/git-core
+/usr/share/git-core 对应 /opt/git/share/git-core
+/usr/share/gitweb 对应 /opt/git/share/gitweb
+</code></pre>
+<h3 id="nginx-src">编译nginx-src</h3>
+<pre><code>
+
+</code></pre>
+<h3 id="nginx-dir">Nginx dir</h3>
+<blockquote>
+<p>apt install spawn-fcgi fcgiwrap nginx  (autoindex没用)</p>
+</blockquote>
+<pre><code>mkdir -p /data/mirror/githost &amp;&amp; cd
+touch cgitrc
+
+mkdir lxqt &amp;&amp; cd
+git clone --mirror https://github.com/lxqt/lxqt
+vi lxqt.git/descritpion
+
+---------
+mkdir -p /data/mirror/gitpub
+vi /etc/nginx/sites-available/default
+location /pub/ {
+    charset gbk,utf-8;
+    alias /data/mirror/gitpub/;
+    index off;
+    autoindex on;
+    autoindex_localtime on;
+    autoindex_exact_size off;
+}
+
+</code></pre>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -8,24 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://slackman.cn/about/">
+        <link rel="canonical" href="https://slackman.cn/system/01-bootcd/">
       
       
       
       
-      <link rel="icon" href="../linux.ico">
+      <link rel="icon" href="../../linux.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>About - SLACKMAN.CN</title>
+        <title>BootCD - SLACKMAN.CN</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +44,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about-links" class="md-skip">
+        <a href="#bootable-cd-iso" class="md-skip">
           跳转至
         </a>
       
@@ -82,9 +82,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+    <a href="../.." title="SLACKMAN.CN" class="md-header__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
       
-  <img src="../xp.png" alt="logo">
+  <img src="../../xp.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              BootCD
             
           </span>
         </div>
@@ -194,11 +194,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
         
   
     
@@ -232,9 +230,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
+    <a href="../.." title="SLACKMAN.CN" class="md-nav__button md-logo" aria-label="SLACKMAN.CN" data-md-component="logo">
       
-  <img src="../xp.png" alt="logo">
+  <img src="../../xp.png" alt="logo">
 
     </a>
     SLACKMAN.CN
@@ -318,19 +316,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -339,7 +328,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -364,6 +352,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grub2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      isolinux
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -380,8 +403,101 @@
   
 
 
-<h1 id="about-links">About Links</h1>
-<p><a href="https://www.wikihow.com/Main-Page">https://www.wikihow.com/Main-Page</a></p>
+<h1 id="bootable-cd-iso">Bootable CD iso</h1>
+<p>https://github.com/syzdek/efibootiso</p>
+<pre><code>mkdir -p efibootiso
+cd efibootiso
+mkdir -p EFI/BOOT
+mkdir -p boot/grub/x86_64-efi
+
+curl -o boot/vmlinuz \
+   https://mirrors.kernel.org/slackware/slackware64-current/kernels/huge.s/bzImage
+curl -o boot/initrd.img \
+   https://mirrors.kernel.org/slackware/slackware64-current/isolinux/initrd.img
+
+EFI/BOOT/{BOOTx64.EFI BOOTIA32.EFI}
+bootx64.efi ---------UEFI的必需引导文件
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code>sudo xorriso -as mkisofs \
+    --modification-date=2024122615551800\
+    --protective-msdos-label \
+    -volid &quot;ALPINE_TEAISO&quot; \
+    -appid &quot;Alpine Linux Live/Rescue Media&quot; \
+    -publisher &quot;Alpine Linux &lt;https://alpinelinux.org&gt;&quot; \
+    -preparer &quot;Prepared by TeaISO v2&quot; \
+    -r -graft-points -no-pad \
+    --sort-weight 0 / \
+    --sort-weight 1 /boot \
+    --grub2-mbr /data/isowork/boot/grub/i386-pc/boot_hybrid.img \
+    -iso_mbr_part_type 0x83 \
+    -isohybrid-gpt-basdat \
+    -partition_offset 16 \
+    -b boot/grub/i386-pc/eltorito.img \
+    -c boot.catalog \
+    -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info \
+    -eltorito-alt-boot \
+    -append_partition 2 0xef /data/isowork/efi.img \
+    -append_partition 3 0x83 /data/writable.img \
+    -e --interval:appended_partition_2:all:: \
+    -no-emul-boot \
+    --mbr-force-bootable \
+    -apm-block-size 512 \
+    -partition_cyl_align off \
+    -full-iso9660-filenames \
+    -iso-level 3 -rock -joliet \
+    -o example.iso \
+    /data/isowork/
+</code></pre>
+<h2 id="grub2">Grub2</h2>
+<p>makearchiso, teaiso, liveslack</p>
+<p>https://samwhelp.github.io/note-about-archlinux/read/core/iso/build-iso/start-build-arch-iso.html</p>
+<p>https://fedoraproject.org/wiki/LiveOS_image<br />
+https://www.gnu.org/software/grub/manual/legacy/Making-a-GRUB-bootable-CD_002dROM.html<br />
+https://docs.fedoraproject.org/en-US/quick-docs/grub2-bootloader/  </p>
+<p>https://github.com/nanoant/efi.git<br />
+https://mvallim.github.io/live-custom-ubuntu-from-scratch/<br />
+https://www.cnblogs.com/searchstar/p/18437677  </p>
+<h2 id="isolinux">isolinux</h2>
+<p>https://mvallim.github.io/live-custom-ubuntu-from-scratch/</p>
+<pre><code>mkdir -p image/{casper,isolinux,install}
+cp /boot/vmlinuz-**-**-generic image/casper/vmlinuz
+cp /boot/initrd.img-**-**-generic image/casper/initrd
+
+sudo apt install isolinux
+sudo apt install syslinux
+cp /usr/lib/ISOLINUX/isolinux.bin image/isolinux/ 
+cp /usr/lib/syslinux/modules/bios/* image/isolinux/
+</code></pre>
+<p>isolinux/isolinux.cfg</p>
+<pre><code>UI vesamenu.c32
+
+MENU TITLE Boot Menu
+DEFAULT linux
+TIMEOUT 600
+MENU RESOLUTION 640 480
+MENU COLOR border       30;44   #40ffffff #a0000000 std
+MENU COLOR title        1;36;44 #9033ccff #a0000000 std
+MENU COLOR sel          7;37;40 #e0ffffff #20ffffff all
+MENU COLOR unsel        37;44   #50ffffff #a0000000 std
+MENU COLOR help         37;40   #c0ffffff #a0000000 std
+MENU COLOR timeout_msg  37;40   #80ffffff #00000000 std
+MENU COLOR timeout      1;37;40 #c0ffffff #00000000 std
+MENU COLOR msg07        37;40   #90ffffff #a0000000 std
+MENU COLOR tabmsg       31;40   #30ffffff #00000000 std
+
+LABEL linux
+ MENU LABEL Try Ubuntu FS
+ MENU DEFAULT
+ KERNEL /casper/vmlinuz
+ APPEND initrd=/casper/initrd boot=casper
+
+LABEL linux
+ MENU LABEL Try Ubuntu FS (nomodeset)
+ MENU DEFAULT
+ KERNEL /casper/vmlinuz
+ APPEND initrd=/casper/initrd boot=casper nomodeset
+</code></pre>
 
 
 
@@ -426,10 +542,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
